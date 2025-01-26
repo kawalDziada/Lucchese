@@ -1,0 +1,106 @@
+@use '../base/variables' as *;
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: -415px;
+  width: 415px;
+  height: 100%;
+  background: $white;
+  z-index: 1000;
+  transition: $transition;
+
+  &.hidden {
+    right: -415px;
+  }
+
+  &.active {
+    right: 0;
+  }
+
+  &__header {
+    @include flex-box(row, space-between, center);
+    padding-bottom: 45px;
+    border-bottom: 1px solid $gray;
+  }
+
+  &__title {
+    font-size: $base * 3;
+    font-weight: 400;
+  }
+
+  &__content {
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  &__close {
+    width: $base * 3;
+    height: $base * 3;
+    cursor: pointer;
+  }
+
+  &__section {
+    margin-top: 45px;
+    margin-bottom: 29px;
+
+    &--small {
+      margin-top: $base * 3.25;
+    }
+  }
+
+  &__options button {
+    color: $black;
+    font-size: $base * 2.25;
+    margin: 0 $base * 2 $base * 2 0;
+    padding: 10px;
+    min-width: 57px;
+    min-height: $base * 6;
+    border: 1px solid $gray;
+    background: $white;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: $transition;
+
+    &:hover {
+      border-color: $primary-color;
+    }
+
+    &.selected {
+      border-color: $primary-color;
+      border-width: 2px;
+    }
+  }
+
+  &__sizeHint {
+    @include flex-box(row, flex-start, center, $base);
+    padding: 10px;
+    margin-bottom: 29px;
+    background-color: $blue;
+    font-size: $base * 1.75;
+    font-weight: 300;
+    
+    img {
+      height: $base * 2;
+      width: $base * 2;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($black, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

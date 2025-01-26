@@ -1,0 +1,42 @@
+// Colors
+$white: #ffffff;
+$black: #000000;
+$primary-color: #0c2752;
+$gray: #d9d9d9;
+$beige: #f0ede9;
+$violet: #5433eb;
+$blue: #edf3fc;
+$gold: #86754f;
+
+// Base sizing unit
+$base: 8px;
+
+// Transition
+$transition: all 0.3s ease;
+
+// Center vertically
+@mixin pseudo-center-y() {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Flex-box utility
+@mixin flex-box(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $gap: 0
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// Asset path
+@function asset-path($folder, $file) {
+  @return "../../../src/assets/#{$folder}/#{$file}";
+}

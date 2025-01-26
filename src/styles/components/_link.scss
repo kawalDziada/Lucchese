@@ -1,0 +1,44 @@
+@use '../base/variables' as *;
+
+.link {
+  cursor: pointer;
+  font-size: $base * 1.5;
+  color: $primary-color;
+  text-decoration: none;
+  position: relative;
+  padding: 10px $base * 3 $base * 1.75;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: $transition;
+  }
+
+  &:hover:after {
+    background-color: $black;
+  }
+
+  &--big {
+    font-size: $base * 1.75;
+    padding: $base * 2 46px;
+
+    &:after {
+      background-color: $gray;
+    }
+
+    &:hover:after {
+      background-color: $black;
+    }
+  }
+
+  &--active {
+    &:after {
+      background-color: $black;
+    }
+  }
+}

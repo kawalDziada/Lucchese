@@ -1,0 +1,31 @@
+@use '../base/variables' as *;
+
+.breadcrumbs {
+  @include flex-box(row, space-between, center);
+  margin: $base * 3 $base;
+
+  a {
+    position: relative;
+    padding-right: $base * 4;
+    text-decoration: none;
+    font-weight: 300;
+
+    &:hover {
+      color: $gold;
+    }
+
+    &::after {
+      @include pseudo-center-y();
+      display: block;
+      height: $base * 1.5;
+      width: $base * 1.5;
+      right: 0;
+      background: url(asset-path('icons', 'separator.svg')) no-repeat;
+      background-size: contain;
+    }
+
+    &:last-of-type::after {
+      content: none;
+    }
+  }
+}

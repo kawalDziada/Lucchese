@@ -1,0 +1,269 @@
+@use '../base/variables' as *;
+
+.pricing {
+  width: 37%;
+
+  &__title {
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $black;
+    margin-bottom: $base * 1.75;
+  }
+
+  &__price {
+    font-size: $base * 3;
+    font-weight: 300;
+    color: $primary-color;
+    margin-bottom: 22px;
+  }
+
+  &__productNumber {
+    font-size: $base * 2;
+    font-weight: 300;
+    color: $primary-color;
+    margin: $base 0;
+  }
+
+  &__description {
+    font-size: $base * 2;
+    font-weight: 400;
+    line-height: 22px;
+    color: $black;
+  }
+
+  &__readMore {
+    display: block;
+    width: auto;
+    padding: 0;
+    margin: 13px 0 21px;
+    font-size: $base * 2.25;
+    font-weight: 300;
+    color: $primary-color;
+    text-decoration-line: underline;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  &__option {
+    font-size: $base * 2;
+    font-weight: 600;
+    color: $primary-color;
+  }
+
+  &__picked {
+    font-size: $base * 2;
+    font-weight: 400;
+    color: $black;
+  }
+
+  &__colorOptions {
+    list-style: none;
+    margin: $base * 2 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    margin: 0 $base $base 0;
+    cursor: pointer;
+  }
+
+  &__outerCircle {
+    border: 2px solid $gray;
+    border-radius: 50%;
+    transition: $transition;
+
+    &:hover,
+    &--active {
+      border-color: $primary-color;
+    }
+  }
+
+  &__innerCircle {
+    width: $base * 3;
+    height: $base * 3;
+    margin: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-position: center;
+
+    &--glitz {
+      background-image: url(asset-path('materials', 'priscilla-glitz-cream.webp'));
+    }
+    
+    &--red {
+      background-image: url(asset-path('materials', 'priscilla-red.webp'));
+    }
+    
+    &--black {
+      background-image: url(asset-path('materials', 'priscilla-black.webp'));
+    }
+    
+    &--brown {
+      background-image: url(asset-path('materials', 'priscilla-brown.webp'));
+    }
+    
+    &--espresso {
+      background-image: url(asset-path('materials', 'priscilla-suede-espresso.webp'));
+    }
+    
+    &--crinkle {
+      background-image: url(asset-path('materials', 'priscilla-crinkle-patent-black.webp'));
+    }
+    
+    &--pewter {
+      background-image: url(asset-path('materials', 'priscilla-pewter-pewter.webp'));
+    }
+    
+    &--garnet {
+      background-image: url(asset-path('materials', 'priscilla-suede-garnet.webp'));
+    }
+    
+    &--emerald {
+      background-image: url(asset-path('materials', 'priscilla-suede-emerald.webp'));
+    }
+    
+    &--luster {
+      background-image: url(asset-path('materials', 'priscilla-red-luster.webp'));
+    }    
+  }
+
+  &__sizeInfo {
+    @include flex-box(row, space-between, center);
+
+    p {
+      font-size: $base * 1.75;
+      font-weight: 400;
+      color: $primary-color;
+    }
+  }
+
+  &__sizeDetails {
+    display: flex;
+    align-items: center;
+  }
+
+  &__fitGuide {
+    position: relative;
+    padding: 0 0 0 $base;
+
+    &::before {
+      @include pseudo-center-y();
+      left: -$base * 2;
+      width: $base * 2;
+      height: $base * 2;
+      background-image: url(asset-path('icons', 'Ruler.svg'));
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: $base * 2;
+      background: $gray;
+      display: inline-block;
+      right: -13px;
+    }
+  }
+
+  &__sizeChart {
+    position: relative;
+    padding: 0 0 0 40px;
+    cursor: pointer;
+
+    &::before {
+      @include pseudo-center-y();
+      left: 20px;
+      width: $base * 2;
+      height: $base * 2;
+      background-image: url(asset-path('icons', 'CoatHanger.svg'));
+    }
+  }
+
+  &__infoIcon {
+    display: block;
+    width: $base * 3;
+    height: $base * 2;
+    margin-bottom: $base;
+    background: url(asset-path('icons', 'info-icon.svg')) center no-repeat;
+    cursor: pointer;
+  }
+
+  &__sizeSelected {
+    padding: $base $base * 2;
+    margin-bottom: $base;
+    background-color: $beige;
+  }
+
+  &__sizeValues {
+    margin-top: 7px;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  &__or {
+    @include flex-box(row, center, center, $base * 3);
+    width: 90%;
+    margin: $base 0;
+    font-size: $base;
+    font-weight: 300;
+    color: $primary-color;
+    gap: $base * 3;
+
+    span {
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: $primary-color;
+    }
+  }
+
+  &__buttonsGroup {
+    @include flex-box(row, center, center);
+    flex-wrap: wrap;
+    margin-top: $base * 3;
+  }
+
+  &__shippingPolicy {
+    @include flex-box(column, center, center, $base * 3);
+    padding: 22px;
+    margin-top: $base * 3;
+    border-top: 1px solid $primary-color;
+    font-weight: 300;
+  }
+
+  &__shipping,
+  &__return {
+    position: relative;
+    font-size: $base * 1.5;
+
+    &::before {
+      @include pseudo-center-y();
+      width: $base * 3;
+      height: $base * 3;
+      background-size: contain;
+    }
+  }
+
+  &__shipping::before {
+    left: -$base * 4;
+    background: url(asset-path('icons', 'Truck.svg')) center no-repeat;
+  }
+
+  &__return::before {
+    left: -$base * 5;
+    background: url(asset-path('icons', 'ArrowUDownLeft.svg')) center no-repeat;
+  }
+}

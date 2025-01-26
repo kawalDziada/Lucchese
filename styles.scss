@@ -1,0 +1,13 @@
+@use './src/styles/base/base';
+@use './src/styles/base/reset';
+
+@use './src/styles/components/breadcrumbs';
+@use './src/styles/components/button';
+@use './src/styles/components/link';
+@use './src/styles/components/main';
+@use './src/styles/components/navbar';
+@use './src/styles/components/popup';
+@use './src/styles/components/pricing';
+@use './src/styles/components/slider';
+
+@use 'swiper/swiper-bundle.css';
